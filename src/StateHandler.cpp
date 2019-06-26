@@ -7,13 +7,15 @@
 #include <iostream>
 
 
-StateHandler::StateHandler(){
+StateHandler::StateHandler()
+{
 	current_state = INITIALIZE;
 	executed = true;
 }
 
 
-void StateHandler::printCurrentState() const{
+void StateHandler::printCurrentState() const
+{
 	std::cout << "The current state is ";
 
 	switch(current_state) {
@@ -43,7 +45,8 @@ void StateHandler::printCurrentState() const{
 }
 
 
-State StateHandler::getStateFromUser(){
+State StateHandler::getStateFromUser()
+{
 	State state = 0;
 
 	while (state < INITIALIZE || state > HOMING){
@@ -66,7 +69,8 @@ State StateHandler::getStateFromUser(){
 }
 
 
-void StateHandler::callStateAction(const State &state){
+void StateHandler::callStateAction(const State &state)
+{
 
 	executed = false;
 
@@ -100,7 +104,8 @@ void StateHandler::callStateAction(const State &state){
 
 }
 
-void StateHandler::printActionStatus(const bool &robot1_status, const bool &robot2_status, const bool &robot3_status) const {
+void StateHandler::printActionStatus(const bool &robot1_status, const bool &robot2_status, const bool &robot3_status) const
+{
 	if (init1_ok && init2_ok && init3_ok)
 	{
 		ROS_INFO("All robots executed successfully");
@@ -122,7 +127,8 @@ void StateHandler::printActionStatus(const bool &robot1_status, const bool &robo
 	}
 }
 
-bool StateHandler::initialize(goal) const {
+bool StateHandler::initialize(goal) const
+{
 	ros::init(argc, argv, "test_fibonacci");
 
 	/*** INITIALIZE ***/
@@ -147,14 +153,42 @@ bool StateHandler::initialize(goal) const {
 
 	printActionStatus(init1_ok, init2_ok, init3_ok);
 
+	return true;
 }
 
 
 
-bool readPose() const;
-bool approach() const;
+bool readPose() const
+{
+	return true;
+}
+
+bool approach() const
+{
+	return true;
+}
+
 bool preGrasp() const;
+{
+	return true;
+}
+
 bool grasp() const;
+{
+	return true;
+}
+
 bool lift() const;
+{
+	return true;
+}
+
 bool manipulate() const;
+{
+	return true;
+}
+
 bool homing() const;
+{
+	return true;
+}
