@@ -3,6 +3,6 @@ prefix=/home/user/Desktop/master/devel
 Name: server_test
 Description: Description of server_test
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/user/Desktop/master/devel/include
 Libs: -L/home/user/Desktop/master/devel/lib 
-Requires: 
+Requires: roscpp rospy std_msgs actionlib_msgs

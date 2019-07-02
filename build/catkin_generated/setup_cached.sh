@@ -9,3 +9,4 @@
 # modified environment variables
 export PKG_CONFIG_PATH="/home/user/Desktop/master/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/user/Desktop/master/build"
+export PYTHONPATH="/home/user/Desktop/master/devel/lib/python2.7/dist-packages:$PYTHONPATH"
