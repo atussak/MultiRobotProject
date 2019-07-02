@@ -1,0 +1,9 @@
+<launch>
+    <node name="master_client" 
+		  pkg="master" 
+		  type="master_client_node"
+		  respawn="true"
+		  respawn_delay="5"
+		  output="screen">
+    </node>
+</launch>

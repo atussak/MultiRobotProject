@@ -17,12 +17,18 @@ actionlib/client/simple_action_client.h
 -
 actionlib/client/terminal_state.h
 -
+geometry_msgs/Pose2D.h
+-
 iostream
 -
 
 /home/user/Desktop/master/src/master_node/src/master_client.cpp
 ../include/master_node/StateHandler.h
 /home/user/Desktop/master/src/master_node/include/master_node/StateHandler.h
+ros/ros.h
+-
+iostream
+-
 
 /opt/ros/kinetic/include/actionlib/action_definition.h
 
@@ -300,6 +306,22 @@ boost/date_time/posix_time/posix_time_duration.hpp
 boost/config/abi_prefix.hpp
 -
 boost/config/abi_suffix.hpp
+-
+
+/opt/ros/kinetic/include/geometry_msgs/Pose2D.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
 -
 
 /opt/ros/kinetic/include/ros/advertise_options.h

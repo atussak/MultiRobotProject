@@ -9,7 +9,7 @@ private:
 	bool state_executed;
 
 	// functions that call the actions for the specific states
-	bool initialize(goal) const;
+	bool initialize() const;
 	bool readPose() const;
 	bool approach() const;
 	bool preGrasp() const;
@@ -28,6 +28,6 @@ public:
 	void callStateAction(const State &state);
 	bool currentStateDone() const {return state_executed;}
 
-	~StateHandler();
+	~StateHandler(){}
 
 };

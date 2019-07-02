@@ -1,11 +1,17 @@
 #include "../include/master_node/StateHandler.h"
+#include <ros/ros.h>
+#include <iostream>
 
 int main (int argc, char **argv)
 {
   
+    ros::init(argc, argv, "Master node started");
+
     std::cout << "Welcome to the robot state handler :) \n" << std::endl;
 
-    StateHandler state_handler();
+    StateHandler state_handler;
+
+    State next_state;
 
     while (true)
     {
