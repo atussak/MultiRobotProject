@@ -4,8 +4,9 @@
 #include <actionlib/client/simple_action_client.h>
 #include <actionlib/client/terminal_state.h>
 #include <geometry_msgs/Pose2D.h>
-
 #include <iostream>
+
+#include <print_server/PrintAction.h>
 
 
 StateHandler::StateHandler()
@@ -162,6 +163,24 @@ bool StateHandler::initialize() const
 
 	printActionStatus(init1_ok, init2_ok, init3_ok);
 	*/
+
+
+	typedef actionlib::SimpleActionClient<print_server::PrintAction> Client;
+
+	std::cout << "--- About to call action ---" << std::endl;
+	Client client("print", true); // true -> don't need ros::spin()
+	if (!client.waitForServer(ros::Duration(3,0))){
+		std::cout << "Server contact timeout" << std::endl;
+	}
+	print_server::PrintGoal goal;
+	goal.print_nr_times = 2;
+	client.sendGoal(goal);
+	std::cout << "Goal sent" << std::endl;
+	//client.waitForResult(ros::Duration(5.0));
+	std::cout << "Waited 5 seconds" << std::endl;
+  	if (client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+    	printf("Yay! The action was executed.");
+  	printf("Current State: %s\n", client.getState().toString().c_str());
 
 	return true;
 }

@@ -1,0 +1,8 @@
+# Define the goal
+uint32 print_nr_times  # How many times the action prints
+---
+# Define the result
+bool print_success
+---
+# Define a feedback message
+float32 nr_completed_prints

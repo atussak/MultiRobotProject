@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/user/Desktop/master/install/lib;/home/user/Desktop/master/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/user/Desktop/master/install/lib;/home/user/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -152,7 +152,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(master_EXPORTED_TARGETS "")
+set(master_EXPORTED_TARGETS "master_generate_messages_cpp;master_generate_messages_eus;master_generate_messages_lisp;master_generate_messages_nodejs;master_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${master_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -189,7 +189,7 @@ foreach(depend ${depends})
   list(APPEND master_EXPORTED_TARGETS ${${master_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "master-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${master_DIR}/${extra})

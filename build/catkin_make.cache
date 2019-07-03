@@ -1,2 +1,2 @@
-master_node:server_test
+master_node:print_server
 -DCATKIN_DEVEL_PREFIX=/home/user/Desktop/master/devel -DCMAKE_INSTALL_PREFIX=/home/user/Desktop/master/install -G Unix Makefiles

@@ -338,14 +338,11 @@ lib:FILEPATH=/opt/ros/kinetic/lib/libtf2.so
 //Value Computed by CMake
 master_BINARY_DIR:STATIC=/home/user/Desktop/master/build/master_node
 
+//Dependencies for target
+master_LIB_DEPENDS:STATIC=
+
 //Value Computed by CMake
 master_SOURCE_DIR:STATIC=/home/user/Desktop/master/src/master_node
-
-//Value Computed by CMake
-master_node_BINARY_DIR:STATIC=/home/user/Desktop/master/build/master_node
-
-//Value Computed by CMake
-master_node_SOURCE_DIR:STATIC=/home/user/Desktop/master/src/master_node
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/kinetic/share/message_filters/cmake
@@ -358,6 +355,15 @@ message_runtime_DIR:PATH=/opt/ros/kinetic/share/message_runtime/cmake
 
 //The directory containing a CMake configuration file for nav_msgs.
 nav_msgs_DIR:PATH=/opt/ros/kinetic/share/nav_msgs/cmake
+
+//Value Computed by CMake
+print_server_BINARY_DIR:STATIC=/home/user/Desktop/master/build/print_server
+
+//The directory containing a CMake configuration file for print_server.
+print_server_DIR:PATH=/home/user/Desktop/master/devel/share/print_server/cmake
+
+//Value Computed by CMake
+print_server_SOURCE_DIR:STATIC=/home/user/Desktop/master/src/print_server
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/kinetic/share/rosconsole/cmake
@@ -385,12 +391,6 @@ rostime_DIR:PATH=/opt/ros/kinetic/share/rostime/cmake
 
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/kinetic/share/sensor_msgs/cmake
-
-//Value Computed by CMake
-server_test_BINARY_DIR:STATIC=/home/user/Desktop/master/build/server_test
-
-//Value Computed by CMake
-server_test_SOURCE_DIR:STATIC=/home/user/Desktop/master/src/server_test
 
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/kinetic/share/std_msgs/cmake

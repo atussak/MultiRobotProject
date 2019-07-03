@@ -1,0 +1,9 @@
+<launch>
+    <node name="print_server" 
+		  pkg="print_server" 
+		  type="print_server_node"
+		  respawn="true"
+		  respawn_delay="5"
+		  output="screen">
+    </node>
+</launch>

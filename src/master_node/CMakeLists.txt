@@ -6,6 +6,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   nav_msgs
   tf
+  print_server
 )
 
 ## Generate messages in the 'msg' folder
@@ -34,6 +35,11 @@ find_package(catkin REQUIRED COMPONENTS
 #   DEPENDENCIES
 #   qualisys_msgs
 #)
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  actionlib_msgs
+)
 
 
 ## Generate dynamic reconfigure parameters in the 'cfg' folder
@@ -50,6 +56,7 @@ catkin_package(
    geometry_msgs
    nav_msgs
    tf
+   #print_server
 #  DEPENDS system_lib
 )
 
@@ -72,7 +79,7 @@ include_directories(
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
@@ -90,7 +97,7 @@ add_executable(master_client_node src/master_client.cpp src/StateHandler.cpp)
 add_dependencies(master_client_node ${PROJECT_NAME})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(master_client_node
+ target_link_libraries(master_client_node 
    ${catkin_LIBRARIES}
  )
 
