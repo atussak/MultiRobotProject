@@ -1,0 +1,3 @@
+int32 commanded_state
+---
+bool robot1_finished

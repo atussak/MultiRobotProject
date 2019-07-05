@@ -1,3 +1,7 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/master_generate_messages_lisp"
+  "/home/user/Desktop/master/devel/share/common-lisp/ros/master/srv/state.lisp"
+)
 
 # Per-language clean rules from dependency scanning.
 foreach(lang )

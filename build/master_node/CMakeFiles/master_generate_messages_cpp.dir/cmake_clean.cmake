@@ -1,3 +1,7 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/master_generate_messages_cpp"
+  "/home/user/Desktop/master/devel/include/master/state.h"
+)
 
 # Per-language clean rules from dependency scanning.
 foreach(lang )

@@ -53,6 +53,18 @@ CMAKE_BINARY_DIR = /home/user/Desktop/master/build
 # Include the progress variables for this target.
 include master_node/CMakeFiles/master_generate_messages_cpp.dir/progress.make
 
+master_node/CMakeFiles/master_generate_messages_cpp: /home/user/Desktop/master/devel/include/master/state.h
+
+
+/home/user/Desktop/master/devel/include/master/state.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/user/Desktop/master/devel/include/master/state.h: /home/user/Desktop/master/src/master_node/srv/state.srv
+/home/user/Desktop/master/devel/include/master/state.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+/home/user/Desktop/master/devel/include/master/state.h: /opt/ros/kinetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from master/state.srv"
+	cd /home/user/Desktop/master/src/master_node && /home/user/Desktop/master/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/user/Desktop/master/src/master_node/srv/state.srv -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p master -o /home/user/Desktop/master/devel/include/master -e /opt/ros/kinetic/share/gencpp/cmake/..
+
+master_generate_messages_cpp: master_node/CMakeFiles/master_generate_messages_cpp
+master_generate_messages_cpp: /home/user/Desktop/master/devel/include/master/state.h
 master_generate_messages_cpp: master_node/CMakeFiles/master_generate_messages_cpp.dir/build.make
 
 .PHONY : master_generate_messages_cpp

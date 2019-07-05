@@ -3,6 +3,6 @@ prefix=/home/user/Desktop/master/devel
 Name: master
 Description: Description of master
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/user/Desktop/master/devel/include
 Libs: -L/home/user/Desktop/master/devel/lib 
-Requires: roscpp geometry_msgs nav_msgs tf
+Requires: roscpp geometry_msgs nav_msgs tf message_runtime

@@ -7,6 +7,7 @@ find_package(catkin REQUIRED COMPONENTS
   nav_msgs
   tf
   print_server
+  message_generation
 )
 
 ## Generate messages in the 'msg' folder
@@ -17,11 +18,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  state.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -56,6 +56,7 @@ catkin_package(
    geometry_msgs
    nav_msgs
    tf
+   message_runtime
    #print_server
 #  DEPENDS system_lib
 )

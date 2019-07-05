@@ -164,7 +164,7 @@ bool StateHandler::initialize() const
 	printActionStatus(init1_ok, init2_ok, init3_ok);
 	*/
 
-
+	/*
 	typedef actionlib::SimpleActionClient<print_server::PrintAction> Client;
 
 	std::cout << "--- About to call action ---" << std::endl;
@@ -181,7 +181,7 @@ bool StateHandler::initialize() const
   	if (client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
     	printf("Yay! The action was executed.");
   	printf("Current State: %s\n", client.getState().toString().c_str());
-
+	*/
 	return true;
 }
 

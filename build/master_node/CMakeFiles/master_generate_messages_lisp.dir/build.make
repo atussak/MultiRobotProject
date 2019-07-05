@@ -53,6 +53,16 @@ CMAKE_BINARY_DIR = /home/user/Desktop/master/build
 # Include the progress variables for this target.
 include master_node/CMakeFiles/master_generate_messages_lisp.dir/progress.make
 
+master_node/CMakeFiles/master_generate_messages_lisp: /home/user/Desktop/master/devel/share/common-lisp/ros/master/srv/state.lisp
+
+
+/home/user/Desktop/master/devel/share/common-lisp/ros/master/srv/state.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/user/Desktop/master/devel/share/common-lisp/ros/master/srv/state.lisp: /home/user/Desktop/master/src/master_node/srv/state.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from master/state.srv"
+	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/user/Desktop/master/src/master_node/srv/state.srv -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p master -o /home/user/Desktop/master/devel/share/common-lisp/ros/master/srv
+
+master_generate_messages_lisp: master_node/CMakeFiles/master_generate_messages_lisp
+master_generate_messages_lisp: /home/user/Desktop/master/devel/share/common-lisp/ros/master/srv/state.lisp
 master_generate_messages_lisp: master_node/CMakeFiles/master_generate_messages_lisp.dir/build.make
 
 .PHONY : master_generate_messages_lisp

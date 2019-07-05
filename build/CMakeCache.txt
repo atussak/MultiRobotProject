@@ -338,11 +338,16 @@ lib:FILEPATH=/opt/ros/kinetic/lib/libtf2.so
 //Value Computed by CMake
 master_BINARY_DIR:STATIC=/home/user/Desktop/master/build/master_node
 
+master_DIR:PATH=
+
 //Dependencies for target
 master_LIB_DEPENDS:STATIC=
 
 //Value Computed by CMake
 master_SOURCE_DIR:STATIC=/home/user/Desktop/master/src/master_node
+
+//The directory containing a CMake configuration file for master_node.
+master_node_DIR:PATH=master_node_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/kinetic/share/message_filters/cmake

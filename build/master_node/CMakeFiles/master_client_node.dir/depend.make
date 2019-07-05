@@ -96,6 +96,9 @@ master_node/CMakeFiles/master_client_node.dir/src/StateHandler.cpp.o: /opt/ros/k
 master_node/CMakeFiles/master_client_node.dir/src/StateHandler.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 master_node/CMakeFiles/master_client_node.dir/src/StateHandler.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
 
+master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /home/user/Desktop/master/devel/include/master/state.h
+master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /home/user/Desktop/master/devel/include/master/stateRequest.h
+master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /home/user/Desktop/master/devel/include/master/stateResponse.h
 master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /home/user/Desktop/master/devel/include/print_server/PrintAction.h
 master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /home/user/Desktop/master/devel/include/print_server/PrintActionFeedback.h
 master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /home/user/Desktop/master/devel/include/print_server/PrintActionGoal.h
@@ -187,6 +190,7 @@ master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /opt/ros/
 master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
 master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /opt/ros/kinetic/include/std_msgs/Header.h
+master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /opt/ros/kinetic/include/std_msgs/String.h
 master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 master_node/CMakeFiles/master_client_node.dir/src/master_client.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
 
