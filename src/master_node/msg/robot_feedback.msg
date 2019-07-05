@@ -1,0 +1,2 @@
+int32 current_state
+bool state_executed

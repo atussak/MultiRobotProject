@@ -53,22 +53,39 @@ CMAKE_BINARY_DIR = /home/user/Desktop/master/build
 # Include the progress variables for this target.
 include master_node/CMakeFiles/master_generate_messages_py.dir/progress.make
 
+master_node/CMakeFiles/master_generate_messages_py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/_robot_feedback.py
 master_node/CMakeFiles/master_generate_messages_py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/_state.py
+master_node/CMakeFiles/master_generate_messages_py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/__init__.py
 master_node/CMakeFiles/master_generate_messages_py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/__init__.py
 
 
+/home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/_robot_feedback.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/_robot_feedback.py: /home/user/Desktop/master/src/master_node/msg/robot_feedback.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG master/robot_feedback"
+	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/user/Desktop/master/src/master_node/msg/robot_feedback.msg -Imaster:/home/user/Desktop/master/src/master_node/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p master -o /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg
+
 /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/_state.py: /opt/ros/kinetic/lib/genpy/gensrv_py.py
 /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/_state.py: /home/user/Desktop/master/src/master_node/srv/state.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code from SRV master/state"
-	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/user/Desktop/master/src/master_node/srv/state.srv -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p master -o /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv
+/home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/_state.py: /home/user/Desktop/master/src/master_node/msg/robot_feedback.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV master/state"
+	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/user/Desktop/master/src/master_node/srv/state.srv -Imaster:/home/user/Desktop/master/src/master_node/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p master -o /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv
+
+/home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/__init__.py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/_robot_feedback.py
+/home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/__init__.py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/_state.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for master"
+	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg --initpy
 
 /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/__init__.py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/_robot_feedback.py
 /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/__init__.py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/_state.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python srv __init__.py for master"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python srv __init__.py for master"
 	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv --initpy
 
 master_generate_messages_py: master_node/CMakeFiles/master_generate_messages_py
+master_generate_messages_py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/_robot_feedback.py
 master_generate_messages_py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/_state.py
+master_generate_messages_py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/__init__.py
 master_generate_messages_py: /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/__init__.py
 master_generate_messages_py: master_node/CMakeFiles/master_generate_messages_py.dir/build.make
 

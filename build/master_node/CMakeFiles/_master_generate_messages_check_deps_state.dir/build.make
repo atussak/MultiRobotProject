@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/user/Desktop/master/build
 include master_node/CMakeFiles/_master_generate_messages_check_deps_state.dir/progress.make
 
 master_node/CMakeFiles/_master_generate_messages_check_deps_state:
-	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py master /home/user/Desktop/master/src/master_node/srv/state.srv 
+	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py master /home/user/Desktop/master/src/master_node/srv/state.srv master/robot_feedback
 
 _master_generate_messages_check_deps_state: master_node/CMakeFiles/_master_generate_messages_check_deps_state
 _master_generate_messages_check_deps_state: master_node/CMakeFiles/_master_generate_messages_check_deps_state.dir/build.make

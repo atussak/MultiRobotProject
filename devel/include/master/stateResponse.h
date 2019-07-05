@@ -24,17 +24,17 @@ struct stateResponse_
   typedef stateResponse_<ContainerAllocator> Type;
 
   stateResponse_()
-    : robot1_finished(false)  {
+    : finished(false)  {
     }
   stateResponse_(const ContainerAllocator& _alloc)
-    : robot1_finished(false)  {
+    : finished(false)  {
   (void)_alloc;
     }
 
 
 
-   typedef uint8_t _robot1_finished_type;
-  _robot1_finished_type robot1_finished;
+   typedef uint8_t _finished_type;
+  _finished_type finished;
 
 
 
@@ -71,7 +71,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'actionlib_msgs': ['/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg']}
+// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'actionlib_msgs': ['/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg'], 'master': ['/home/user/Desktop/master/src/master_node/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -114,12 +114,12 @@ struct MD5Sum< ::master::stateResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "34476f89daf3bba091c2d9ef0c5b6b5b";
+    return "e2797c797e620a950ba704492d72873b";
   }
 
   static const char* value(const ::master::stateResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x34476f89daf3bba0ULL;
-  static const uint64_t static_value2 = 0x91c2d9ef0c5b6b5bULL;
+  static const uint64_t static_value1 = 0xe2797c797e620a95ULL;
+  static const uint64_t static_value2 = 0x0ba704492d72873bULL;
 };
 
 template<class ContainerAllocator>
@@ -138,8 +138,7 @@ struct Definition< ::master::stateResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "bool robot1_finished\n\
-\n\
+    return "bool finished\n\
 ";
   }
 
@@ -158,7 +157,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.robot1_finished);
+      stream.next(m.finished);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -177,8 +176,8 @@ struct Printer< ::master::stateResponse_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::master::stateResponse_<ContainerAllocator>& v)
   {
-    s << indent << "robot1_finished: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.robot1_finished);
+    s << indent << "finished: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.finished);
   }
 };
 

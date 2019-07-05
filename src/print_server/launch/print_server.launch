@@ -1,7 +1,14 @@
 <launch>
-    <node name="print_server" 
+    <node name="print_server1" 
 		  pkg="print_server" 
-		  type="print_server_node"
+		  type="print_server_node1"
+		  respawn="true"
+		  respawn_delay="5"
+		  output="screen">
+    </node>
+    <node name="print_server2" 
+		  pkg="print_server" 
+		  type="print_server_node2"
 		  respawn="true"
 		  respawn_delay="5"
 		  output="screen">

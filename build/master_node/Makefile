@@ -271,6 +271,21 @@ master_geneus/fast:
 .PHONY : master_geneus/fast
 
 # Convenience name for target.
+master_node/CMakeFiles/_master_generate_messages_check_deps_robot_feedback.dir/rule:
+	cd /home/user/Desktop/master/build && $(MAKE) -f CMakeFiles/Makefile2 master_node/CMakeFiles/_master_generate_messages_check_deps_robot_feedback.dir/rule
+.PHONY : master_node/CMakeFiles/_master_generate_messages_check_deps_robot_feedback.dir/rule
+
+# Convenience name for target.
+_master_generate_messages_check_deps_robot_feedback: master_node/CMakeFiles/_master_generate_messages_check_deps_robot_feedback.dir/rule
+
+.PHONY : _master_generate_messages_check_deps_robot_feedback
+
+# fast build rule for target.
+_master_generate_messages_check_deps_robot_feedback/fast:
+	cd /home/user/Desktop/master/build && $(MAKE) -f master_node/CMakeFiles/_master_generate_messages_check_deps_robot_feedback.dir/build.make master_node/CMakeFiles/_master_generate_messages_check_deps_robot_feedback.dir/build
+.PHONY : _master_generate_messages_check_deps_robot_feedback/fast
+
+# Convenience name for target.
 master_node/CMakeFiles/_master_generate_messages_check_deps_state.dir/rule:
 	cd /home/user/Desktop/master/build && $(MAKE) -f CMakeFiles/Makefile2 master_node/CMakeFiles/_master_generate_messages_check_deps_state.dir/rule
 .PHONY : master_node/CMakeFiles/_master_generate_messages_check_deps_state.dir/rule
@@ -805,6 +820,7 @@ help:
 	@echo "... master_genlisp"
 	@echo "... master_generate_messages_lisp"
 	@echo "... master_geneus"
+	@echo "... _master_generate_messages_check_deps_robot_feedback"
 	@echo "... _master_generate_messages_check_deps_state"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... install/local"

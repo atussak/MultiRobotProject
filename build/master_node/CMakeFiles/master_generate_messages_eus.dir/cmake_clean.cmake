@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/master_generate_messages_eus"
+  "/home/user/Desktop/master/devel/share/roseus/ros/master/msg/robot_feedback.l"
   "/home/user/Desktop/master/devel/share/roseus/ros/master/srv/state.l"
   "/home/user/Desktop/master/devel/share/roseus/ros/master/manifest.l"
 )

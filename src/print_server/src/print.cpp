@@ -9,8 +9,8 @@
 bool be_a_robot(master::state::Request  &req,
          master::state::Response &res )
 {
-  res.robot1_finished = true;
-  ROS_INFO("sending back response");
+  res.finished = true;
+  ROS_INFO("Robot 1 sending back response");
   return true;
 }
 
@@ -19,8 +19,8 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "robot1_server");
   ros::NodeHandle n;
 
-  ros::ServiceServer service = n.advertiseService("execute_state", be_a_robot);
-  ROS_INFO("Ready to execute state, give it to me.");
+  ros::ServiceServer service = n.advertiseService("init1", be_a_robot);
+  ROS_INFO("Robot 1 ready to execute state initialize.");
   ros::spin();
 
   return 0;

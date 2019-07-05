@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/master_generate_messages_nodejs"
+  "/home/user/Desktop/master/devel/share/gennodejs/ros/master/msg/robot_feedback.js"
   "/home/user/Desktop/master/devel/share/gennodejs/ros/master/srv/state.js"
 )
 

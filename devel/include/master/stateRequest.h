@@ -24,17 +24,17 @@ struct stateRequest_
   typedef stateRequest_<ContainerAllocator> Type;
 
   stateRequest_()
-    : commanded_state(0)  {
+    : execute_state(false)  {
     }
   stateRequest_(const ContainerAllocator& _alloc)
-    : commanded_state(0)  {
+    : execute_state(false)  {
   (void)_alloc;
     }
 
 
 
-   typedef int32_t _commanded_state_type;
-  _commanded_state_type commanded_state;
+   typedef uint8_t _execute_state_type;
+  _execute_state_type execute_state;
 
 
 
@@ -71,7 +71,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'actionlib_msgs': ['/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg'], 'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg']}
+// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'actionlib_msgs': ['/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg'], 'master': ['/home/user/Desktop/master/src/master_node/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -114,12 +114,12 @@ struct MD5Sum< ::master::stateRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "65e4159dc05e66122185e53535105016";
+    return "27587b439c805f63a7377ee4a1dcf7d5";
   }
 
   static const char* value(const ::master::stateRequest_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x65e4159dc05e6612ULL;
-  static const uint64_t static_value2 = 0x2185e53535105016ULL;
+  static const uint64_t static_value1 = 0x27587b439c805f63ULL;
+  static const uint64_t static_value2 = 0xa7377ee4a1dcf7d5ULL;
 };
 
 template<class ContainerAllocator>
@@ -138,7 +138,7 @@ struct Definition< ::master::stateRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int32 commanded_state\n\
+    return "bool execute_state\n\
 ";
   }
 
@@ -157,7 +157,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.commanded_state);
+      stream.next(m.execute_state);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -176,8 +176,8 @@ struct Printer< ::master::stateRequest_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::master::stateRequest_<ContainerAllocator>& v)
   {
-    s << indent << "commanded_state: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.commanded_state);
+    s << indent << "execute_state: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.execute_state);
   }
 };
 

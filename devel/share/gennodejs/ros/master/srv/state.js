@@ -21,22 +21,22 @@ class stateRequest {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.commanded_state = null;
+      this.execute_state = null;
     }
     else {
-      if (initObj.hasOwnProperty('commanded_state')) {
-        this.commanded_state = initObj.commanded_state
+      if (initObj.hasOwnProperty('execute_state')) {
+        this.execute_state = initObj.execute_state
       }
       else {
-        this.commanded_state = 0;
+        this.execute_state = false;
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type stateRequest
-    // Serialize message field [commanded_state]
-    bufferOffset = _serializer.int32(obj.commanded_state, buffer, bufferOffset);
+    // Serialize message field [execute_state]
+    bufferOffset = _serializer.bool(obj.execute_state, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -44,13 +44,13 @@ class stateRequest {
     //deserializes a message object of type stateRequest
     let len;
     let data = new stateRequest(null);
-    // Deserialize message field [commanded_state]
-    data.commanded_state = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [execute_state]
+    data.execute_state = _deserializer.bool(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 4;
+    return 1;
   }
 
   static datatype() {
@@ -60,13 +60,13 @@ class stateRequest {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '65e4159dc05e66122185e53535105016';
+    return '27587b439c805f63a7377ee4a1dcf7d5';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    int32 commanded_state
+    bool execute_state
     
     `;
   }
@@ -77,11 +77,11 @@ class stateRequest {
       msg = {};
     }
     const resolved = new stateRequest(null);
-    if (msg.commanded_state !== undefined) {
-      resolved.commanded_state = msg.commanded_state;
+    if (msg.execute_state !== undefined) {
+      resolved.execute_state = msg.execute_state;
     }
     else {
-      resolved.commanded_state = 0
+      resolved.execute_state = false
     }
 
     return resolved;
@@ -92,22 +92,22 @@ class stateResponse {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.robot1_finished = null;
+      this.finished = null;
     }
     else {
-      if (initObj.hasOwnProperty('robot1_finished')) {
-        this.robot1_finished = initObj.robot1_finished
+      if (initObj.hasOwnProperty('finished')) {
+        this.finished = initObj.finished
       }
       else {
-        this.robot1_finished = false;
+        this.finished = false;
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type stateResponse
-    // Serialize message field [robot1_finished]
-    bufferOffset = _serializer.bool(obj.robot1_finished, buffer, bufferOffset);
+    // Serialize message field [finished]
+    bufferOffset = _serializer.bool(obj.finished, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -115,8 +115,8 @@ class stateResponse {
     //deserializes a message object of type stateResponse
     let len;
     let data = new stateResponse(null);
-    // Deserialize message field [robot1_finished]
-    data.robot1_finished = _deserializer.bool(buffer, bufferOffset);
+    // Deserialize message field [finished]
+    data.finished = _deserializer.bool(buffer, bufferOffset);
     return data;
   }
 
@@ -131,14 +131,13 @@ class stateResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '34476f89daf3bba091c2d9ef0c5b6b5b';
+    return 'e2797c797e620a950ba704492d72873b';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    bool robot1_finished
-    
+    bool finished
     
     `;
   }
@@ -149,11 +148,11 @@ class stateResponse {
       msg = {};
     }
     const resolved = new stateResponse(null);
-    if (msg.robot1_finished !== undefined) {
-      resolved.robot1_finished = msg.robot1_finished;
+    if (msg.finished !== undefined) {
+      resolved.finished = msg.finished;
     }
     else {
-      resolved.robot1_finished = false
+      resolved.finished = false
     }
 
     return resolved;
@@ -163,6 +162,6 @@ class stateResponse {
 module.exports = {
   Request: stateRequest,
   Response: stateResponse,
-  md5sum() { return '9812321c45d35db4ab23b09dfb9c72de'; },
+  md5sum() { return 'fc356054cc550c7695fed3a501922336'; },
   datatype() { return 'master/state'; }
 };

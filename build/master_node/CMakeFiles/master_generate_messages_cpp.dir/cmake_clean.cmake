@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/master_generate_messages_cpp"
+  "/home/user/Desktop/master/devel/include/master/robot_feedback.h"
   "/home/user/Desktop/master/devel/include/master/state.h"
 )
 

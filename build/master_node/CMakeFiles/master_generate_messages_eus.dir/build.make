@@ -53,20 +53,28 @@ CMAKE_BINARY_DIR = /home/user/Desktop/master/build
 # Include the progress variables for this target.
 include master_node/CMakeFiles/master_generate_messages_eus.dir/progress.make
 
+master_node/CMakeFiles/master_generate_messages_eus: /home/user/Desktop/master/devel/share/roseus/ros/master/msg/robot_feedback.l
 master_node/CMakeFiles/master_generate_messages_eus: /home/user/Desktop/master/devel/share/roseus/ros/master/srv/state.l
 master_node/CMakeFiles/master_generate_messages_eus: /home/user/Desktop/master/devel/share/roseus/ros/master/manifest.l
 
 
+/home/user/Desktop/master/devel/share/roseus/ros/master/msg/robot_feedback.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/user/Desktop/master/devel/share/roseus/ros/master/msg/robot_feedback.l: /home/user/Desktop/master/src/master_node/msg/robot_feedback.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from master/robot_feedback.msg"
+	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/user/Desktop/master/src/master_node/msg/robot_feedback.msg -Imaster:/home/user/Desktop/master/src/master_node/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p master -o /home/user/Desktop/master/devel/share/roseus/ros/master/msg
+
 /home/user/Desktop/master/devel/share/roseus/ros/master/srv/state.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/user/Desktop/master/devel/share/roseus/ros/master/srv/state.l: /home/user/Desktop/master/src/master_node/srv/state.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from master/state.srv"
-	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/user/Desktop/master/src/master_node/srv/state.srv -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p master -o /home/user/Desktop/master/devel/share/roseus/ros/master/srv
+/home/user/Desktop/master/devel/share/roseus/ros/master/srv/state.l: /home/user/Desktop/master/src/master_node/msg/robot_feedback.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from master/state.srv"
+	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/user/Desktop/master/src/master_node/srv/state.srv -Imaster:/home/user/Desktop/master/src/master_node/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg -p master -o /home/user/Desktop/master/devel/share/roseus/ros/master/srv
 
 /home/user/Desktop/master/devel/share/roseus/ros/master/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for master"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for master"
 	cd /home/user/Desktop/master/build/master_node && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/user/Desktop/master/devel/share/roseus/ros/master master std_msgs actionlib_msgs
 
 master_generate_messages_eus: master_node/CMakeFiles/master_generate_messages_eus
+master_generate_messages_eus: /home/user/Desktop/master/devel/share/roseus/ros/master/msg/robot_feedback.l
 master_generate_messages_eus: /home/user/Desktop/master/devel/share/roseus/ros/master/srv/state.l
 master_generate_messages_eus: /home/user/Desktop/master/devel/share/roseus/ros/master/manifest.l
 master_generate_messages_eus: master_node/CMakeFiles/master_generate_messages_eus.dir/build.make

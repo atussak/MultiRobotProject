@@ -6,9 +6,10 @@
 #include <sstream>
 #include "master/state.h" // generated from the state srv
 
-#include <actionlib/client/simple_action_client.h>
-#include <print_server/PrintAction.h>
+//#include <actionlib/client/simple_action_client.h>
+//#include <print_server/PrintAction.h>
 
+const int NUM_ROBOTS = 2;
 
 int main (int argc, char **argv)
 {
@@ -17,8 +18,7 @@ int main (int argc, char **argv)
     ros::init(argc, argv, "Master node started");
     ros::NodeHandle n;
 
-    ros::ServiceClient client = n.serviceClient<master::state>("execute_state");
-    ros::Rate loop_rate(10);
+    ros::Rate loop_rate(10); // Hz
     
 
     StateHandler state_handler;
@@ -31,25 +31,7 @@ int main (int argc, char **argv)
         if (state_handler.currentStateDone())
         {
             next_state = state_handler.getStateFromUser();
-            //state_handler.callStateAction(next_state);
-        }
-
-        master::state srv;
-        srv.request.commanded_state = next_state;
-
-        if (client.call(srv))
-        {
-            if(srv.response.robot1_finished){
-                ROS_INFO("Robot 1 is done");
-            }
-            else{
-                ROS_INFO("Robot 1 is still working");
-            }
-        }
-        else
-        {
-            ROS_ERROR("Failed to call service execute_state");
-            //return 1;
+            state_handler.callStateAction(next_state, n);
         }
 
         ros::spinOnce();

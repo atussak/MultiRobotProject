@@ -6,7 +6,8 @@
 #include <geometry_msgs/Pose2D.h>
 #include <iostream>
 
-#include <print_server/PrintAction.h>
+//#include <print_server/PrintAction.h>
+#include "master/state.h" // generated from the state srv
 
 
 StateHandler::StateHandler()
@@ -74,7 +75,7 @@ State StateHandler::getStateFromUser()
 }
 
 
-void StateHandler::callStateAction(const State &state)
+void StateHandler::callStateAction(const State &state, ros::NodeHandle n)
 {
 	
 	state_executed = false;
@@ -83,7 +84,7 @@ void StateHandler::callStateAction(const State &state)
 	{
 		std::cout << "in switch" << std::endl;
 		case INITIALIZE :  	std::cout << "Execute initialize" << std::endl;
-							initialize();
+							initialize(n);
 						  	break;
 		case READ_POSE	:   std::cout << "Execute read pose" << std::endl;
 						  	readPose();
@@ -134,8 +135,50 @@ void StateHandler::printActionStatus(const bool &robot1_status, const bool &robo
 	}
 }
 
-bool StateHandler::initialize() const
+bool StateHandler::initialize(ros::NodeHandle n) const
 {
+	ros::ServiceClient client1 = n.serviceClient<master::state>("init1");
+	ros::ServiceClient client2 = n.serviceClient<master::state>("init2");
+	
+	master::state srv1;
+	srv1.request.execute_state = true;
+	master::state srv2;
+	srv2.request.execute_state = true;
+
+	if (client1.call(srv1))
+    {
+        if(srv1.response.finished){
+            ROS_INFO("Robot 1 is initialized");
+        }
+        else{
+            ROS_INFO("Robot 1 is busy");
+        }
+    
+    }
+    else
+    {
+        ROS_ERROR("Failed to call service init1");
+        //return 1;
+    }
+
+    if (client2.call(srv2))
+    {
+        if(srv2.response.finished){
+            ROS_INFO("Robot 2 is initialized");
+        }
+        else{
+            ROS_INFO("Robot 2 is busy");
+        }
+    
+    }
+    else
+    {
+        ROS_ERROR("Failed to call service init2");
+        //return 1;
+    }
+
+
+
 	/*
 	geometry_msgs::Pose2D goal
 

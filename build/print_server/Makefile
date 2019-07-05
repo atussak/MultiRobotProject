@@ -89,6 +89,17 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -121,17 +132,6 @@ install/strip: preinstall
 install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -316,6 +316,21 @@ std_msgs_generate_messages_lisp/fast:
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
+print_server/CMakeFiles/print_server_node2.dir/rule:
+	cd /home/user/Desktop/master/build && $(MAKE) -f CMakeFiles/Makefile2 print_server/CMakeFiles/print_server_node2.dir/rule
+.PHONY : print_server/CMakeFiles/print_server_node2.dir/rule
+
+# Convenience name for target.
+print_server_node2: print_server/CMakeFiles/print_server_node2.dir/rule
+
+.PHONY : print_server_node2
+
+# fast build rule for target.
+print_server_node2/fast:
+	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node2.dir/build.make print_server/CMakeFiles/print_server_node2.dir/build
+.PHONY : print_server_node2/fast
+
+# Convenience name for target.
 print_server/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
 	cd /home/user/Desktop/master/build && $(MAKE) -f CMakeFiles/Makefile2 print_server/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 .PHONY : print_server/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
@@ -344,21 +359,6 @@ roscpp_generate_messages_lisp: print_server/CMakeFiles/roscpp_generate_messages_
 roscpp_generate_messages_lisp/fast:
 	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make print_server/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 .PHONY : roscpp_generate_messages_lisp/fast
-
-# Convenience name for target.
-print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/rule:
-	cd /home/user/Desktop/master/build && $(MAKE) -f CMakeFiles/Makefile2 print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/rule
-.PHONY : print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/rule
-
-# Convenience name for target.
-_print_server_generate_messages_check_deps_PrintResult: print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/rule
-
-.PHONY : _print_server_generate_messages_check_deps_PrintResult
-
-# fast build rule for target.
-_print_server_generate_messages_check_deps_PrintResult/fast:
-	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/build.make print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/build
-.PHONY : _print_server_generate_messages_check_deps_PrintResult/fast
 
 # Convenience name for target.
 print_server/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
@@ -811,19 +811,34 @@ print_server_genpy/fast:
 .PHONY : print_server_genpy/fast
 
 # Convenience name for target.
-print_server/CMakeFiles/print_server_node.dir/rule:
-	cd /home/user/Desktop/master/build && $(MAKE) -f CMakeFiles/Makefile2 print_server/CMakeFiles/print_server_node.dir/rule
-.PHONY : print_server/CMakeFiles/print_server_node.dir/rule
+print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/rule:
+	cd /home/user/Desktop/master/build && $(MAKE) -f CMakeFiles/Makefile2 print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/rule
+.PHONY : print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/rule
 
 # Convenience name for target.
-print_server_node: print_server/CMakeFiles/print_server_node.dir/rule
+_print_server_generate_messages_check_deps_PrintResult: print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/rule
 
-.PHONY : print_server_node
+.PHONY : _print_server_generate_messages_check_deps_PrintResult
 
 # fast build rule for target.
-print_server_node/fast:
-	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node.dir/build.make print_server/CMakeFiles/print_server_node.dir/build
-.PHONY : print_server_node/fast
+_print_server_generate_messages_check_deps_PrintResult/fast:
+	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/build.make print_server/CMakeFiles/_print_server_generate_messages_check_deps_PrintResult.dir/build
+.PHONY : _print_server_generate_messages_check_deps_PrintResult/fast
+
+# Convenience name for target.
+print_server/CMakeFiles/print_server_node1.dir/rule:
+	cd /home/user/Desktop/master/build && $(MAKE) -f CMakeFiles/Makefile2 print_server/CMakeFiles/print_server_node1.dir/rule
+.PHONY : print_server/CMakeFiles/print_server_node1.dir/rule
+
+# Convenience name for target.
+print_server_node1: print_server/CMakeFiles/print_server_node1.dir/rule
+
+.PHONY : print_server_node1
+
+# fast build rule for target.
+print_server_node1/fast:
+	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node1.dir/build.make print_server/CMakeFiles/print_server_node1.dir/build
+.PHONY : print_server_node1/fast
 
 src/print.o: src/print.cpp.o
 
@@ -831,7 +846,7 @@ src/print.o: src/print.cpp.o
 
 # target to build an object file
 src/print.cpp.o:
-	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node.dir/build.make print_server/CMakeFiles/print_server_node.dir/src/print.cpp.o
+	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node1.dir/build.make print_server/CMakeFiles/print_server_node1.dir/src/print.cpp.o
 .PHONY : src/print.cpp.o
 
 src/print.i: src/print.cpp.i
@@ -840,7 +855,7 @@ src/print.i: src/print.cpp.i
 
 # target to preprocess a source file
 src/print.cpp.i:
-	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node.dir/build.make print_server/CMakeFiles/print_server_node.dir/src/print.cpp.i
+	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node1.dir/build.make print_server/CMakeFiles/print_server_node1.dir/src/print.cpp.i
 .PHONY : src/print.cpp.i
 
 src/print.s: src/print.cpp.s
@@ -849,8 +864,35 @@ src/print.s: src/print.cpp.s
 
 # target to generate assembly for a file
 src/print.cpp.s:
-	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node.dir/build.make print_server/CMakeFiles/print_server_node.dir/src/print.cpp.s
+	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node1.dir/build.make print_server/CMakeFiles/print_server_node1.dir/src/print.cpp.s
 .PHONY : src/print.cpp.s
+
+src/robot2.o: src/robot2.cpp.o
+
+.PHONY : src/robot2.o
+
+# target to build an object file
+src/robot2.cpp.o:
+	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node2.dir/build.make print_server/CMakeFiles/print_server_node2.dir/src/robot2.cpp.o
+.PHONY : src/robot2.cpp.o
+
+src/robot2.i: src/robot2.cpp.i
+
+.PHONY : src/robot2.i
+
+# target to preprocess a source file
+src/robot2.cpp.i:
+	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node2.dir/build.make print_server/CMakeFiles/print_server_node2.dir/src/robot2.cpp.i
+.PHONY : src/robot2.cpp.i
+
+src/robot2.s: src/robot2.cpp.s
+
+.PHONY : src/robot2.s
+
+# target to generate assembly for a file
+src/robot2.cpp.s:
+	cd /home/user/Desktop/master/build && $(MAKE) -f print_server/CMakeFiles/print_server_node2.dir/build.make print_server/CMakeFiles/print_server_node2.dir/src/robot2.cpp.s
+.PHONY : src/robot2.cpp.s
 
 # Help Target
 help:
@@ -861,6 +903,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... install/local"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_py"
@@ -872,9 +915,9 @@ help:
 	@echo "... print_server_gencpp"
 	@echo "... install"
 	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... print_server_node2"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_lisp"
-	@echo "... _print_server_generate_messages_check_deps_PrintResult"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
@@ -906,12 +949,15 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... print_server_generate_messages_py"
 	@echo "... print_server_genpy"
-	@echo "... print_server_node"
+	@echo "... _print_server_generate_messages_check_deps_PrintResult"
+	@echo "... print_server_node1"
 	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... src/print.o"
 	@echo "... src/print.i"
 	@echo "... src/print.s"
+	@echo "... src/robot2.o"
+	@echo "... src/robot2.i"
+	@echo "... src/robot2.s"
 .PHONY : help
 
 

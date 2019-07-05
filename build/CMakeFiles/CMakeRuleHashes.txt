@@ -1,5 +1,6 @@
 # Hashes of file build rules.
-d45dc442c9869ffbb4cf7886e16394b8 /home/user/Desktop/master/devel/include/master/state.h
+8ef14be6ab384ac873a8670e610d083e /home/user/Desktop/master/devel/include/master/robot_feedback.h
+5b21cce014745d738a1e8aa7ae46197e /home/user/Desktop/master/devel/include/master/state.h
 8d696cb5d95a0475483ae1e8fa35d2d9 /home/user/Desktop/master/devel/include/print_server/PrintAction.h
 03dd2ef4acc806b4843b742cd9fe29fb /home/user/Desktop/master/devel/include/print_server/PrintActionFeedback.h
 64f074dfbe06191c4e49008f177a1b07 /home/user/Desktop/master/devel/include/print_server/PrintActionGoal.h
@@ -7,8 +8,10 @@ d45dc442c9869ffbb4cf7886e16394b8 /home/user/Desktop/master/devel/include/master/
 73b107af21d4bdec7f522e0b73567029 /home/user/Desktop/master/devel/include/print_server/PrintFeedback.h
 4135407514f38e13ff316fcbe337dae0 /home/user/Desktop/master/devel/include/print_server/PrintGoal.h
 c902d085d8a43a789a8315f8bfa4e42a /home/user/Desktop/master/devel/include/print_server/PrintResult.h
+00cbe8e594b310ce6c283d32a7efd320 /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/__init__.py
+768a735a288d3debe91c94e35d3165cd /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/msg/_robot_feedback.py
 3d67e5b4aa98f433a9130f4b01ac3003 /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/__init__.py
-a50c0fdfb7f3a9769ef3a582145d90ca /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/_state.py
+1f91f31f5f70f69799a71d19b47c5366 /home/user/Desktop/master/devel/lib/python2.7/dist-packages/master/srv/_state.py
 367d8b057263b080143742ecb66a8881 /home/user/Desktop/master/devel/lib/python2.7/dist-packages/print_server/msg/_PrintAction.py
 890304994db86a0f73cab4d61bd732c5 /home/user/Desktop/master/devel/lib/python2.7/dist-packages/print_server/msg/_PrintActionFeedback.py
 fcbd3771ce7f416702d9890f57c14236 /home/user/Desktop/master/devel/lib/python2.7/dist-packages/print_server/msg/_PrintActionGoal.py
@@ -17,7 +20,8 @@ b30cf5a67613678616ce6dc7b7c4ce8e /home/user/Desktop/master/devel/lib/python2.7/d
 cff14c5bec6f7719bd4eaba5cc7c549e /home/user/Desktop/master/devel/lib/python2.7/dist-packages/print_server/msg/_PrintGoal.py
 3552f20a864ede08ce28961e5ef5370f /home/user/Desktop/master/devel/lib/python2.7/dist-packages/print_server/msg/_PrintResult.py
 f4af624b4679e175786d2ca1f648760f /home/user/Desktop/master/devel/lib/python2.7/dist-packages/print_server/msg/__init__.py
-dea8dbf92f97392fe1937e9340360956 /home/user/Desktop/master/devel/share/common-lisp/ros/master/srv/state.lisp
+193c02bc64bcb3acd469319610ff673e /home/user/Desktop/master/devel/share/common-lisp/ros/master/msg/robot_feedback.lisp
+adbdce115bd56e2a5c287b10ea82870b /home/user/Desktop/master/devel/share/common-lisp/ros/master/srv/state.lisp
 8e671f88f9645d2b5d936bac6b2b251f /home/user/Desktop/master/devel/share/common-lisp/ros/print_server/msg/PrintAction.lisp
 172b9396b5f4d3b676a01cb8278235e3 /home/user/Desktop/master/devel/share/common-lisp/ros/print_server/msg/PrintActionFeedback.lisp
 5ec24baa5f1d8496a3b04b21a7fe95ff /home/user/Desktop/master/devel/share/common-lisp/ros/print_server/msg/PrintActionGoal.lisp
@@ -25,7 +29,8 @@ dea8dbf92f97392fe1937e9340360956 /home/user/Desktop/master/devel/share/common-li
 5ce6126149570dd83240f4b1fb6cec9a /home/user/Desktop/master/devel/share/common-lisp/ros/print_server/msg/PrintFeedback.lisp
 642f281b173a6f19ff411d328530b7a1 /home/user/Desktop/master/devel/share/common-lisp/ros/print_server/msg/PrintGoal.lisp
 708182076cacbb8cb38a84405507cabc /home/user/Desktop/master/devel/share/common-lisp/ros/print_server/msg/PrintResult.lisp
-6e030dc5ad3bc903bc2df2f5b065de28 /home/user/Desktop/master/devel/share/gennodejs/ros/master/srv/state.js
+9604b19d004b0d50a4613faec1bd95bc /home/user/Desktop/master/devel/share/gennodejs/ros/master/msg/robot_feedback.js
+e36b2e624d6cff790a3c07be6d9fcb4a /home/user/Desktop/master/devel/share/gennodejs/ros/master/srv/state.js
 64907cfe1b234a18f51634a1ea8cc053 /home/user/Desktop/master/devel/share/gennodejs/ros/print_server/msg/PrintAction.js
 7cf8446818160b8d552d8ff22e3c6913 /home/user/Desktop/master/devel/share/gennodejs/ros/print_server/msg/PrintActionFeedback.js
 f46c23422f5741d0765f5aaa7006098c /home/user/Desktop/master/devel/share/gennodejs/ros/print_server/msg/PrintActionGoal.js
@@ -34,7 +39,8 @@ f46c23422f5741d0765f5aaa7006098c /home/user/Desktop/master/devel/share/gennodejs
 806b3b839fd80252e625a27b86d8832d /home/user/Desktop/master/devel/share/gennodejs/ros/print_server/msg/PrintGoal.js
 15e51e1885996c9658c076eb113b2929 /home/user/Desktop/master/devel/share/gennodejs/ros/print_server/msg/PrintResult.js
 dcd45adcb232df9fe0a87ae12f77cfa2 /home/user/Desktop/master/devel/share/roseus/ros/master/manifest.l
-2390406cdf1aaa3e9e5085ccf3481c90 /home/user/Desktop/master/devel/share/roseus/ros/master/srv/state.l
+f5f798d8bb836515e6f6db23f94fb2dc /home/user/Desktop/master/devel/share/roseus/ros/master/msg/robot_feedback.l
+427619a5f29472b2593779c3dbcf40a5 /home/user/Desktop/master/devel/share/roseus/ros/master/srv/state.l
 e5367b0ee6ff83a4177adcf055b3818d /home/user/Desktop/master/devel/share/roseus/ros/print_server/manifest.l
 0a9a84f876d80ca5a1abf178c0731488 /home/user/Desktop/master/devel/share/roseus/ros/print_server/msg/PrintAction.l
 830a39be0070dfd54937005754d19e6c /home/user/Desktop/master/devel/share/roseus/ros/print_server/msg/PrintActionFeedback.l
@@ -44,7 +50,8 @@ e5367b0ee6ff83a4177adcf055b3818d /home/user/Desktop/master/devel/share/roseus/ro
 070d5c50d50b3104ddfe6f7e4f44f632 /home/user/Desktop/master/devel/share/roseus/ros/print_server/msg/PrintGoal.l
 02d502dc2e77908aedcfdc33a01df6a0 /home/user/Desktop/master/devel/share/roseus/ros/print_server/msg/PrintResult.l
 e7691f03d619e6fb9f6ff3a7d7f23151 CMakeFiles/clean_test_results
-d9e9ff4f887f8f48620eb278d1651692 master_node/CMakeFiles/_master_generate_messages_check_deps_state
+c2d7c8a2b01109303bab0acb0f0de6d4 master_node/CMakeFiles/_master_generate_messages_check_deps_robot_feedback
+14496dbdcf35f8d5293ddd1f58a50cc0 master_node/CMakeFiles/_master_generate_messages_check_deps_state
 b1df6ea3ab573313c3eb5e287bcad68d master_node/CMakeFiles/master_generate_messages_cpp
 b1df6ea3ab573313c3eb5e287bcad68d master_node/CMakeFiles/master_generate_messages_eus
 b1df6ea3ab573313c3eb5e287bcad68d master_node/CMakeFiles/master_generate_messages_lisp

@@ -1,8 +1,8 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "master: 0 messages, 1 services")
+message(STATUS "master: 1 messages, 1 services")
 
-set(MSG_I_FLAGS "-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg;-Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Imaster:/home/user/Desktop/master/src/master_node/msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg;-Iactionlib_msgs:/opt/ros/kinetic/share/actionlib_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -19,7 +19,12 @@ add_custom_target(master_generate_messages ALL)
 
 get_filename_component(_filename "/home/user/Desktop/master/src/master_node/srv/state.srv" NAME_WE)
 add_custom_target(_master_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "master" "/home/user/Desktop/master/src/master_node/srv/state.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "master" "/home/user/Desktop/master/src/master_node/srv/state.srv" "master/robot_feedback"
+)
+
+get_filename_component(_filename "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg" NAME_WE)
+add_custom_target(_master_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "master" "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg" ""
 )
 
 #
@@ -28,12 +33,18 @@ add_custom_target(_master_generate_messages_check_deps_${_filename}
 
 ### Section generating for lang: gencpp
 ### Generating Messages
+_generate_msg_cpp(master
+  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/master
+)
 
 ### Generating Services
 _generate_srv_cpp(master
   "/home/user/Desktop/master/src/master_node/srv/state.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/master
 )
 
@@ -51,6 +62,8 @@ add_dependencies(master_generate_messages master_generate_messages_cpp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/user/Desktop/master/src/master_node/srv/state.srv" NAME_WE)
 add_dependencies(master_generate_messages_cpp _master_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg" NAME_WE)
+add_dependencies(master_generate_messages_cpp _master_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(master_gencpp)
@@ -61,12 +74,18 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS master_generate_messages_cpp)
 
 ### Section generating for lang: geneus
 ### Generating Messages
+_generate_msg_eus(master
+  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/master
+)
 
 ### Generating Services
 _generate_srv_eus(master
   "/home/user/Desktop/master/src/master_node/srv/state.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/master
 )
 
@@ -84,6 +103,8 @@ add_dependencies(master_generate_messages master_generate_messages_eus)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/user/Desktop/master/src/master_node/srv/state.srv" NAME_WE)
 add_dependencies(master_generate_messages_eus _master_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg" NAME_WE)
+add_dependencies(master_generate_messages_eus _master_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(master_geneus)
@@ -94,12 +115,18 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS master_generate_messages_eus)
 
 ### Section generating for lang: genlisp
 ### Generating Messages
+_generate_msg_lisp(master
+  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/master
+)
 
 ### Generating Services
 _generate_srv_lisp(master
   "/home/user/Desktop/master/src/master_node/srv/state.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/master
 )
 
@@ -117,6 +144,8 @@ add_dependencies(master_generate_messages master_generate_messages_lisp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/user/Desktop/master/src/master_node/srv/state.srv" NAME_WE)
 add_dependencies(master_generate_messages_lisp _master_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg" NAME_WE)
+add_dependencies(master_generate_messages_lisp _master_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(master_genlisp)
@@ -127,12 +156,18 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS master_generate_messages_lisp)
 
 ### Section generating for lang: gennodejs
 ### Generating Messages
+_generate_msg_nodejs(master
+  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/master
+)
 
 ### Generating Services
 _generate_srv_nodejs(master
   "/home/user/Desktop/master/src/master_node/srv/state.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/master
 )
 
@@ -150,6 +185,8 @@ add_dependencies(master_generate_messages master_generate_messages_nodejs)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/user/Desktop/master/src/master_node/srv/state.srv" NAME_WE)
 add_dependencies(master_generate_messages_nodejs _master_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg" NAME_WE)
+add_dependencies(master_generate_messages_nodejs _master_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(master_gennodejs)
@@ -160,12 +197,18 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS master_generate_messages_nodejs)
 
 ### Section generating for lang: genpy
 ### Generating Messages
+_generate_msg_py(master
+  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/master
+)
 
 ### Generating Services
 _generate_srv_py(master
   "/home/user/Desktop/master/src/master_node/srv/state.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/master
 )
 
@@ -182,6 +225,8 @@ add_dependencies(master_generate_messages master_generate_messages_py)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/user/Desktop/master/src/master_node/srv/state.srv" NAME_WE)
+add_dependencies(master_generate_messages_py _master_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg" NAME_WE)
 add_dependencies(master_generate_messages_py _master_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
