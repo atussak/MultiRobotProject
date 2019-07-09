@@ -4,7 +4,7 @@
 
 #include "std_msgs/String.h"
 #include <sstream>
-#include "master/state.h" // generated from the state srv
+//#include "master/state.h" // generated from the state srv
 
 #include <actionlib/client/simple_action_client.h>
 #include <print_server/PrintAction.h>
