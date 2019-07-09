@@ -413,19 +413,6 @@ std_msgs_generate_messages_lisp/fast:
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 #=============================================================================
-# Target rules for targets named print_server_node2
-
-# Build rule for target.
-print_server_node2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 print_server_node2
-.PHONY : print_server_node2
-
-# fast build rule for target.
-print_server_node2/fast:
-	$(MAKE) -f print_server/CMakeFiles/print_server_node2.dir/build.make print_server/CMakeFiles/print_server_node2.dir/build
-.PHONY : print_server_node2/fast
-
-#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_eus
 
 # Build rule for target.
@@ -1406,7 +1393,6 @@ help:
 	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... print_server_gencpp"
 	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... print_server_node2"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_nodejs"

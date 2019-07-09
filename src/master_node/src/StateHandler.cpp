@@ -6,13 +6,13 @@
 #include <geometry_msgs/Pose2D.h>
 #include <iostream>
 
-//#include <print_server/PrintAction.h>
+#include <print_server/PrintAction.h>
 #include "master/state.h" // generated from the state srv
 
 
 StateHandler::StateHandler()
 {
-	current_state = INITIALIZE;
+	current_state = IDLE;
 	state_executed = true;
 }
 
@@ -22,6 +22,8 @@ void StateHandler::printCurrentState() const
 	std::cout << "The current state is ";
 
 	switch(current_state) {
+		case IDLE		:	std::cout << "idle";
+							break;
 		case INITIALIZE :  	std::cout << "initialize";
 						  	break;
 		case READ_POSE	:   std::cout << "read pose";
@@ -41,21 +43,22 @@ void StateHandler::printCurrentState() const
 	}
 
 	if (state_executed){
-		std::cout << " which is executed." << std::endl;
+		std::cout << " which is executed. \n" << std::endl;
 	}else{
-		std::cout << " which is not done executing." << std::endl;
+		std::cout << " which is not done executing. \n" << std::endl;
 	}
 }
 
 
 State StateHandler::getStateFromUser()
 {
-	State state = State(0);
+	State state = State(-1);
 
-	while (state < INITIALIZE || state > HOMING){
+	while (state < IDLE || state > HOMING || state > current_state+1){
 
 		std::cout << "Please input state ID to be executed (1-8)\n\n";
-		std::cout <<    "\t 1 = initialize\n"
+		std::cout <<    "\t 0 = exit program\n"
+						"\t 1 = initialize\n"
 						"\t 2 = read pose\n"
 						"\t 3 = approach\n"
 						"\t 4 = pre grasp\n"
@@ -67,10 +70,14 @@ State StateHandler::getStateFromUser()
 		std::cin >> input_state;
 		state = State(input_state);
 
-		if(state < INITIALIZE || state > HOMING){
-			std::cout << "!! Invalid input !!" << std::endl;
+		if(state < IDLE || state > HOMING){
+			std::cout << "!! Invalid input - Not a state !!\n" << std::endl;
+		}
+		if(state > current_state+1){
+			std::cout << "!! Invalid input - States have to be executed in the right order !!\n" << std::endl;
 		}	
 	}
+	std::cout << std::endl;
 	return state;
 }
 
@@ -79,6 +86,7 @@ void StateHandler::callStateAction(const State &state, ros::NodeHandle n)
 {
 	
 	state_executed = false;
+	current_state = state;
 	std::cout << "call state action " << state << std::endl;
 	switch(state)
 	{
@@ -135,50 +143,11 @@ void StateHandler::printActionStatus(const bool &robot1_status, const bool &robo
 	}
 }
 
-bool StateHandler::initialize(ros::NodeHandle n) const
+typedef actionlib::SimpleActionClient<print_server::PrintAction> Client;
+
+bool StateHandler::initialize(ros::NodeHandle n)
 {
-	ros::ServiceClient client1 = n.serviceClient<master::state>("init1");
-	ros::ServiceClient client2 = n.serviceClient<master::state>("init2");
 	
-	master::state srv1;
-	srv1.request.execute_state = true;
-	master::state srv2;
-	srv2.request.execute_state = true;
-
-	if (client1.call(srv1))
-    {
-        if(srv1.response.finished){
-            ROS_INFO("Robot 1 is initialized");
-        }
-        else{
-            ROS_INFO("Robot 1 is busy");
-        }
-    
-    }
-    else
-    {
-        ROS_ERROR("Failed to call service init1");
-        //return 1;
-    }
-
-    if (client2.call(srv2))
-    {
-        if(srv2.response.finished){
-            ROS_INFO("Robot 2 is initialized");
-        }
-        else{
-            ROS_INFO("Robot 2 is busy");
-        }
-    
-    }
-    else
-    {
-        ROS_ERROR("Failed to call service init2");
-        //return 1;
-    }
-
-
-
 	/*
 	geometry_msgs::Pose2D goal
 
@@ -207,24 +176,39 @@ bool StateHandler::initialize(ros::NodeHandle n) const
 	printActionStatus(init1_ok, init2_ok, init3_ok);
 	*/
 
-	/*
-	typedef actionlib::SimpleActionClient<print_server::PrintAction> Client;
+	
+	//typedef actionlib::SimpleActionClient<print_server::PrintAction> Client;
 
-	std::cout << "--- About to call action ---" << std::endl;
-	Client client("print", true); // true -> don't need ros::spin()
+
+	std::cout << "--- About to call actions ---" << std::endl;
+
+	Client client("/robot1/print", true); // true -> don't need ros::spin()
+	Client client2("/robot2/print", true);
+
 	if (!client.waitForServer(ros::Duration(3,0))){
-		std::cout << "Server contact timeout" << std::endl;
+		std::cout << "Server 1 contact timeout" << std::endl;
 	}
+	if (!client2.waitForServer(ros::Duration(3,0))){
+		std::cout << "Server 2 contact timeout" << std::endl;
+	}
+
 	print_server::PrintGoal goal;
-	goal.print_nr_times = 2;
+	goal.print_nr_times = 1;
+
 	client.sendGoal(goal);
+	client2.sendGoal(goal);
 	std::cout << "Goal sent" << std::endl;
-	//client.waitForResult(ros::Duration(5.0));
-	std::cout << "Waited 5 seconds" << std::endl;
-  	if (client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-    	printf("Yay! The action was executed.");
-  	printf("Current State: %s\n", client.getState().toString().c_str());
-	*/
+
+	if(client.waitForResult(ros::Duration(5.0)) && client2.waitForResult(ros::Duration(5.0))){
+		printf("Yay! The action was executed.");
+    	state_executed = true;
+	} else {
+		std::cout << "Waited 5 seconds without result." << std::endl;
+		current_state = State(current_state-1);
+	}
+	
+  	printf("Current Client State: %s\n", client.getState().toString().c_str());
+	
 	return true;
 }
 

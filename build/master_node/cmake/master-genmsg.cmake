@@ -19,7 +19,7 @@ add_custom_target(master_generate_messages ALL)
 
 get_filename_component(_filename "/home/user/Desktop/master/src/master_node/srv/state.srv" NAME_WE)
 add_custom_target(_master_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "master" "/home/user/Desktop/master/src/master_node/srv/state.srv" "master/robot_feedback"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "master" "/home/user/Desktop/master/src/master_node/srv/state.srv" ""
 )
 
 get_filename_component(_filename "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg" NAME_WE)
@@ -44,7 +44,7 @@ _generate_msg_cpp(master
 _generate_srv_cpp(master
   "/home/user/Desktop/master/src/master_node/srv/state.srv"
   "${MSG_I_FLAGS}"
-  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/master
 )
 
@@ -85,7 +85,7 @@ _generate_msg_eus(master
 _generate_srv_eus(master
   "/home/user/Desktop/master/src/master_node/srv/state.srv"
   "${MSG_I_FLAGS}"
-  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/master
 )
 
@@ -126,7 +126,7 @@ _generate_msg_lisp(master
 _generate_srv_lisp(master
   "/home/user/Desktop/master/src/master_node/srv/state.srv"
   "${MSG_I_FLAGS}"
-  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/master
 )
 
@@ -167,7 +167,7 @@ _generate_msg_nodejs(master
 _generate_srv_nodejs(master
   "/home/user/Desktop/master/src/master_node/srv/state.srv"
   "${MSG_I_FLAGS}"
-  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/master
 )
 
@@ -208,7 +208,7 @@ _generate_msg_py(master
 _generate_srv_py(master
   "/home/user/Desktop/master/src/master_node/srv/state.srv"
   "${MSG_I_FLAGS}"
-  "/home/user/Desktop/master/src/master_node/msg/robot_feedback.msg"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/master
 )
 

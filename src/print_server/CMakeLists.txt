@@ -109,7 +109,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES print_server
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
 #  DEPENDS system_lib
 )
 
@@ -138,7 +138,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(print_server_node1 src/print.cpp)
-add_executable(print_server_node2 src/robot2.cpp)
+#add_executable(print_server_node2 src/robot2.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -154,9 +154,9 @@ add_executable(print_server_node2 src/robot2.cpp)
 target_link_libraries(print_server_node1
   ${catkin_LIBRARIES}
 )
-target_link_libraries(print_server_node2
-  ${catkin_LIBRARIES}
-)
+#target_link_libraries(print_server_node2
+#  ${catkin_LIBRARIES}
+#)
 
 #############
 ## Install ##

@@ -65,7 +65,6 @@ master_node/CMakeFiles/master_generate_messages_cpp: /home/user/Desktop/master/d
 
 /home/user/Desktop/master/devel/include/master/state.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/user/Desktop/master/devel/include/master/state.h: /home/user/Desktop/master/src/master_node/srv/state.srv
-/home/user/Desktop/master/devel/include/master/state.h: /home/user/Desktop/master/src/master_node/msg/robot_feedback.msg
 /home/user/Desktop/master/devel/include/master/state.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 /home/user/Desktop/master/devel/include/master/state.h: /opt/ros/kinetic/share/gencpp/srv.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/user/Desktop/master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from master/state.srv"

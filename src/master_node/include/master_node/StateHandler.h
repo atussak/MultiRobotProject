@@ -1,6 +1,6 @@
 #include <ros/ros.h>
 
-enum State {INITIALIZE=1, READ_POSE, APPROACH, PRE_GRASP, GRASP, LIFT, MANIPULATE, HOMING};
+enum State {IDLE, INITIALIZE, READ_POSE, APPROACH, PRE_GRASP, GRASP, LIFT, MANIPULATE, HOMING};
 
 class StateHandler
 {
@@ -9,7 +9,7 @@ private:
 	bool state_executed;
 
 	// functions that call the actions for the specific states
-	bool initialize(ros::NodeHandle n) const;
+	bool initialize(ros::NodeHandle n);
 	bool readPose() const;
 	bool approach() const;
 	bool preGrasp() const;

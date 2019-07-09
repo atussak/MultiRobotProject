@@ -1,4 +1,6 @@
 <launch>
+	<arg name="robot_number" default="0"/>
+	<param name="robot_number" value="$(arg robot_number)" type="int"/>
     <node name="print_server1" 
 		  pkg="print_server" 
 		  type="print_server_node1"
@@ -6,6 +8,8 @@
 		  respawn_delay="5"
 		  output="screen">
     </node>
+
+    <!--
     <node name="print_server2" 
 		  pkg="print_server" 
 		  type="print_server_node2"
@@ -13,4 +17,5 @@
 		  respawn_delay="5"
 		  output="screen">
     </node>
+    -->
 </launch>
