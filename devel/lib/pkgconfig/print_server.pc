@@ -5,4 +5,4 @@ Description: Description of print_server
 Version: 0.0.0
 Cflags: -I/home/user/Desktop/master/devel/include
 Libs: -L/home/user/Desktop/master/devel/lib 
-Requires: roscpp rospy std_msgs message_runtime
+Requires: roscpp rospy std_msgs message_runtime actionlib_msgs
