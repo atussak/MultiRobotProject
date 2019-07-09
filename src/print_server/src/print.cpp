@@ -9,22 +9,26 @@ typedef actionlib::SimpleActionServer<print_server::PrintAction> Server;
 
 
 
-void execute(const print_server::PrintGoalConstPtr& goal, Server* as)  // Note: "Action" is not appended to DoDishes here
+void execute(const print_server::PrintGoalConstPtr& goal, Server* as)
 {
 	std::cout << "Execute the printing" << std::endl;
   // Do lots of awesome groundbreaking robot stuff here
   for(int i = 0; i < goal->print_nr_times; i++){
 		std::cout << "\n------\nHeyho im a server servicing your every wish :)\n------\n" << std::endl;
   }
+
   as->setSucceeded();
 }
 
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "do_dishes_server");
+  ros::init(argc, argv, "print_server");
   ros::NodeHandle n;
-  int robot_number = 300;
+
+  // ONLY IF THE NAMESPACE SHOULD BE SET BY COMMAND LINE PARAM
+  /*
+  int robot_number = 0;
   std::cout << "ROBOT NUMBER " << robot_number << std::endl;
 
     if (n.getParam("robot_number", robot_number))
@@ -43,7 +47,8 @@ int main(int argc, char** argv)
 
   std::cout << "Action name: " << action_name << std::endl;
   action_name = "print1";
-
+	*/
+	
   Server server(n, "print", boost::bind(&execute, _1, &server), false);
   server.start();
   std::cout << "Server started" << std::endl;
