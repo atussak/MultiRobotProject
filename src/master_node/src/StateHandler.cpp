@@ -3,11 +3,17 @@
 #include <ros/ros.h>
 #include <actionlib/client/simple_action_client.h>
 #include <actionlib/client/terminal_state.h>
-#include <geometry_msgs/Pose2D.h>
+
 #include <iostream>
 
 #include <print_server/PrintAction.h>
-//#include "master/state.h" // generated from the state srv
+
+
+/*
+         Change this to be of the general action type that will be made for the
+         state-actions.
+*/
+typedef actionlib::SimpleActionClient<print_server::PrintAction> Client;
 
 
 StateHandler::StateHandler()
@@ -73,6 +79,8 @@ State StateHandler::getStateFromUser()
 		if(state < IDLE || state > HOMING){
 			std::cout << "!! Invalid input - Not a state !!\n" << std::endl;
 		}
+		// Making it impossible to jump states.
+		// The current or previous state could be executet again
 		if(state > current_state+1){
 			std::cout << "!! Invalid input - States have to be executed in the right order !!\n" << std::endl;
 		}	
@@ -84,41 +92,42 @@ State StateHandler::getStateFromUser()
 
 void StateHandler::callStateAction(const State &state, ros::NodeHandle n)
 {
-	
-	state_executed = false;
-	current_state = state;
 	std::cout << "call state action " << state << std::endl;
 	switch(state)
 	{
 		std::cout << "in switch" << std::endl;
 		case INITIALIZE :  	std::cout << "Execute initialize" << std::endl;
-							initialize(n);
+							state_executed = initialize(n);
 						  	break;
 		case READ_POSE	:   std::cout << "Execute read pose" << std::endl;
-						  	readPose();
+						  	state_executed = readPose(n);
 						  	break; 
 		case APPROACH   :	std::cout << "Execute approach" << std::endl;
-							approach();
+							state_executed = approach(n);
 							break;
 		case PRE_GRASP	: 	std::cout << "Execute pre grasp" << std::endl;
-							preGrasp();
+							state_executed = preGrasp(n);
 							break;
 		case GRASP 		:	std::cout << "Execute grasp" << std::endl;
-							grasp();
+							state_executed = grasp(n);
 							break;
 		case LIFT 		: 	std::cout << "Execute lift" << std::endl;
-							lift();
+							state_executed = lift(n);
 							break;
 		case MANIPULATE : 	std::cout << "Execute manipulate" << std::endl;
-							manipulate();
+							state_executed = manipulate(n);
 							break;
 		case HOMING 	: 	std::cout << "Execute homing" << std::endl;
-							homing();
+							state_executed = homing(n);
 							break;
 		default			:	std::cout << "Error: could not find state " << state << std::endl;
 	}
 
-	//std::cout << "OUTSIDE switch" << std::endl;
+	if(state_executed){
+		current_state = state;
+	} else {
+		current_state = State(current_state-1);
+	}
 }
 
 void StateHandler::printActionStatus(const bool &robot1_status, const bool &robot2_status, const bool &robot3_status) const
@@ -143,48 +152,17 @@ void StateHandler::printActionStatus(const bool &robot1_status, const bool &robo
 	}
 }
 
-typedef actionlib::SimpleActionClient<print_server::PrintAction> Client;
 
-bool StateHandler::initialize(ros::NodeHandle n)
+bool StateHandler::initialize(ros::NodeHandle n) const
 {
-	
-	/*
-	geometry_msgs::Pose2D goal
-
-	/*** INITIALIZE ***/
-
-	// create action client for each robot
-	// true causes the client to spin its own thread enabling parallel execution of action
-	
-	/*
-	actionlib::SimpleActionClient<robot1::initialize_action> ac1_init("init robot 1", true);
-	actionlib::SimpleActionClient<robot2::initialize_action> ac2_init("init robot 2", true);
-	actionlib::SimpleActionClient<robot3::initialize_action> ac3_init("init robot 3", true);
-
-	ROS_INFO("Waiting for initialization action servers to start.");
-	// wait for the action server to start
-	ac1_init.waitForServer(); //will wait for infinite time
-	ac2_init.waitForServer(); //will wait for infinite time
-	ac3_init.waitForServer(); //will wait for infinite time
-
-	ROS_INFO("All action initialization servers started, start init function with common goal.");
-	int max_wait_duration = ros::Duration(20.0);
-	bool init1_ok = ac1_init.sendGoalAndWait(goal, max_wait_duration);
-	bool init2_ok = ac2_init.sendGoalAndWait(goal, max_wait_duration);
-	bool init3_ok = ac3_init.sendGoalAndWait(goal, max_wait_duration);
-
-	printActionStatus(init1_ok, init2_ok, init3_ok);
-	*/
-
-	
-	//typedef actionlib::SimpleActionClient<print_server::PrintAction> Client;
-
 
 	std::cout << "--- About to call actions ---" << std::endl;
 
+	// Make one client for each robot
 	Client client("/robot1/print", true); // true -> don't need ros::spin()
 	Client client2("/robot2/print", true);
 
+	// Will wait for max 3 seconds for the connection between client and server
 	if (!client.waitForServer(ros::Duration(3,0))){
 		std::cout << "Server 1 contact timeout" << std::endl;
 	}
@@ -192,66 +170,74 @@ bool StateHandler::initialize(ros::NodeHandle n)
 		std::cout << "Server 2 contact timeout" << std::endl;
 	}
 
+	// Goal sent to the server. Could just be boolean for the general case.
 	print_server::PrintGoal goal;
 	goal.print_nr_times = 1;
 
 	client.sendGoal(goal);
 	client2.sendGoal(goal);
-	std::cout << "Goal sent" << std::endl;
+
+	/*
+		Ideally the return values of waitForResult will be inputed to the function
+		StateHandler::printActionStatus() so that it doesnt have to be done again
+		for every function and it will be outputet in a nice format.
+	*/
 
 	if(client.waitForResult(ros::Duration(5.0)) && client2.waitForResult(ros::Duration(5.0))){
 		printf("Yay! The action was executed.");
-    	state_executed = true;
+    	return true;
 	} else {
 		std::cout << "Waited 5 seconds without result." << std::endl;
-		current_state = State(current_state-1);
+		return false;
 	}
 	
-  	printf("Current Client State: %s\n", client.getState().toString().c_str());
-	
-	return true;
 }
 
+/*
 
+	These functions will do the same as initialize except the will call respectively
+	different servers.
 
-bool StateHandler::readPose() const
+*/
+
+bool StateHandler::readPose(ros::NodeHandle n) const
 {
 	// read goal, endeffector and mobile platform position
-	return true;
+	return false;
 }
 
-bool StateHandler::approach() const
+bool StateHandler::approach(ros::NodeHandle n) const
 {
 	//move to the neighborhood of the goal position
-	return true;
+	return false;
 }
 
-bool StateHandler::preGrasp() const
+bool StateHandler::preGrasp(ros::NodeHandle n) const
 {
 	// command manipulator
-	return true;
+	return false;
 }
 
-bool StateHandler::grasp() const
+bool StateHandler::grasp(ros::NodeHandle n) const
 {
 	// gripper grasp
-	return true;
+	return false;
 }
 
-bool StateHandler::lift() const
+bool StateHandler::lift(ros::NodeHandle n) const
 {
 	// move manipulator
-	return true;
+	return false;
 }
 
-bool StateHandler::manipulate() const
+bool StateHandler::manipulate(ros::NodeHandle n) const
 {
 	// commands sent to manipulator and robot platform
-	return true;
+	return false;
 }
 
-bool StateHandler::homing() const
+bool StateHandler::homing(ros::NodeHandle n) const
 {
 	// drop object and get back to init position
-	return true;
+	return false;
 }

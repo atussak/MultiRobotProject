@@ -30,10 +30,12 @@ int main (int argc, char **argv)
     { 
         state_handler.printCurrentState();
         next_state = state_handler.getStateFromUser();
+
         if (next_state == IDLE){
             ROS_INFO("Shutting down manager");
             break;
         }
+        
         state_handler.callStateAction(next_state, n);
 
         ros::spinOnce();
